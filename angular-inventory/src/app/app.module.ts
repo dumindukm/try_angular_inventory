@@ -7,6 +7,10 @@ import { LoginComponent } from './custom_components/login/login.component';
 import { DashboardComponent } from './custom_components/dashboard/dashboard.component';
 import { SecureLayoutComponent } from './layouts/secure-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './core/services/fake-server/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { LoginLayoutComponent } from './layouts/login-layout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

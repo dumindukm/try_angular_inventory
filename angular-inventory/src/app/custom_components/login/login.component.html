@@ -1,2 +1,7 @@
 <p>login works!</p>
 <a routerLink="/purchase-orders" routerLinkActive="active">purchase-orders</a>
+
+User name:<input type="text" name="name" id="name" [(ngModel)] = 'name' /> 
+Password:<input type="password" name="password" id="password" [(ngModel)] ='password'/>
+
+<button type="button" (click)="login()">Login</button>
