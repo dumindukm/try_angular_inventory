@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,13 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
 })
 export class LoginComponent implements OnInit {
 
-  @Input()  name:  string ="a";
-  @Input()  password:  string ="b";
+
+  @Input() error: string  ='';
+  form: FormGroup = new FormGroup({
+    username: new FormControl('a'),
+    password: new FormControl('b'),
+  });
+
   constructor(private router: Router,
     private location: Location,
     private authService: AuthenticationService) { }
@@ -21,11 +27,13 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    if(this.authService.ValidateUser(this.name, this.password))
+    if(this.authService.ValidateUser(this.form.controls.username.value, this.form.controls.password.value))
     {
       this.router.navigate(['/dashboard']);
+    }else{
+      console.log('auth failed');
     }
-    console.log(this.name);
+    
     
   }
 
