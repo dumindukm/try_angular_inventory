@@ -1,1 +1,5 @@
-<p>dashboard works!</p>
+<p>Products</p>
+<div *ngFor="let item of products;">
+    <h3>{{item.name}}</h3>
+<app-product-details [product]='item' (addWishList)="onWishListAdd($event)"></app-product-details>
+</div>

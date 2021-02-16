@@ -21,4 +21,8 @@ export class DashboardComponent implements OnInit {
     console.log(this.products);
   }
 
+  onWishListAdd(code:string){
+    console.log('added to wish list '+code)
+  }
+
 }

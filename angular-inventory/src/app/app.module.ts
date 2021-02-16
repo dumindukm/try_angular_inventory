@@ -13,6 +13,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './core/services/fake-server/in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { ProductDetailsComponent } from './custom_components/products/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from './material.module';
     LoginComponent,
     DashboardComponent,
     LoginLayoutComponent,
-    SecureLayoutComponent
+    SecureLayoutComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
